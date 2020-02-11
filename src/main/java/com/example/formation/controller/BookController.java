@@ -1,6 +1,7 @@
 package com.example.formation.controller;
 
 import com.example.formation.domain.models.Book;
+import com.example.formation.presentation.BookDetail;
 import com.example.formation.service.BookQueryUseCase;
 import com.example.formation.service.exception.BookNotFoundException;
 import org.springframework.http.HttpStatus;
@@ -22,8 +23,9 @@ public class BookController {
     }
 
     @GetMapping("/books/{id}")
-    public Book helloBook(@PathVariable Long id) {
-        return this.bookQueryUseCase.findBookById(id);
+    public BookDetail getBook(@PathVariable String id) {
+        Book book = this.bookQueryUseCase.findBookById(id);
+        return BookDetail.mapBook(book);
     }
 
 }
