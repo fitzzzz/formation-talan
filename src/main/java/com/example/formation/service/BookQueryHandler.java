@@ -4,6 +4,8 @@ import com.example.formation.domain.models.Book;
 import com.example.formation.service.exception.BookNotFoundException;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class BookQueryHandler implements BookQueryUseCase {
 
@@ -16,5 +18,10 @@ public class BookQueryHandler implements BookQueryUseCase {
     @Override
     public Book findBookById(String id) {
         return bookQueryRepository.findById(id).orElseThrow(BookNotFoundException::new);
+    }
+
+    @Override
+    public List<Book> findPublishedBooks() {
+        return bookQueryRepository.findPublishedBooks();
     }
 }
