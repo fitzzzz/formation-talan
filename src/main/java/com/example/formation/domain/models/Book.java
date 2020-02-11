@@ -9,6 +9,7 @@ import java.time.LocalDate;
 
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Setter @Getter @NoArgsConstructor @AllArgsConstructor
+@EqualsAndHashCode
 @Entity
 public class Book {
     @Id

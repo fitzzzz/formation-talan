@@ -1,5 +1,7 @@
 package com.example.formation.service;
 
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 
 
@@ -8,6 +10,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 @Getter
+@AllArgsConstructor
+@EqualsAndHashCode
 public class SubmitBookCommand {
     @NotBlank(message = "Title is required")
     private String title;
@@ -17,5 +21,5 @@ public class SubmitBookCommand {
 
     @NotBlank(message = "ISBN is required")
     @Size(min=13, max=13, message = "ISBN should have 13 digits")
-    private String iSBN;
+    private String isbn;
 }
